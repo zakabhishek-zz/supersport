@@ -7,6 +7,22 @@ namespace Drupal\casestudies\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 
+
+// Pull in PHP Simple HTML DOM Parser
+include("simplehtmldom/simple_html_dom.php");
+            
+$html = new simple_html_dom();
+
+$url = "http://www.achieveinternet.com/case-studies";
+
+$html = file_get_html($url);
+
+$echo $html->find('h2',0)->innertext;
+
+$echo $html->find('h4',0)->innertext;
+
+$echo $html->find('h4',4)->innertext;
+
 /**
  * Class DefaultForm.
  *
@@ -44,6 +60,16 @@ class DefaultForm extends FormBase {
         '#header' => $header,
         '#empty' => $this->t('Empty'),
     );
+
+
+
+
+
+
+
+
+
+
 
 //public function buildForm(array $form, FormStateInterface $form_state) {
 //    $form['title'] = array(
